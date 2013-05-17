@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Screen Printing Calculator</title>
+<link href="css/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="scripts/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="scripts/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+<script>
+	function tpiLpiCalc(){
+		var tpiInput;
+		var lpiOutput;
+		var ppiOutput;
+		
+		tpiInput = document.getElementById('tpiTextBox').value;
+		lpiOutput = Math.round(tpiInput/4.5);
+		ppiOutput = Math.round(lpiOutput*2);
+		
+		document.getElementById('lpiTextBox').value = lpiOutput;
+		document.getElementById('ppiTextBox').value = ppiOutput;
+	}
+</script>
+<style>
+	input{text-align:center;}
+	.textBoxCntr{width:200px; margin-left:auto; margin-right:auto; text-align:center;}
+	#tpiTextBox, #lpiTextBox, #ppiTextBox {width:80px; font-size:25px;}
+	#content{padding-left:10px; padding-right:10px;}
+	#top{background-image:url(images/headerBg.png);padding-top:1px; text-align:center;}
+	#calcBtn{width:150px; margin-left:auto; margin-right:auto;}
+</style>
+</head> 
+<body> 
+<!-- Home -->
+<div data-role="page" id="page1TPI">
+    <div id="top" data-theme="a" data-role="header">
+      <img style="width: 288px; height: 100px" src="images/header.png">
+    </div>
+    
+    <div id="content" data-role="content">
+        <h4>Enter the number of threads per inch (tpi) of the screen mesh:</h4>
+        <div data-role="fieldcontain">
+          <div class="textBoxCntr">
+            <input id="tpiTextBox" type="number"><label>&nbsp;TPI</label>
+          </div>
+        </div>
+        <a data-role="button" onclick="tpiLpiCalc()" id="calcBtn">Calculate</a>
+        <h4><hr></h4>
+        
+        <h4>Print your film using the following screen ruling, measured in lines per inch (lpi):</h4>
+        <div data-role="fieldcontain">
+          <div class="textBoxCntr">
+            <input id="lpiTextBox"  readonly><label>&nbsp;LPI</label>
+          </div>
+        </div>
+         <h4><hr></h4>
+         
+         <h4>For best results, your raster artwork should be at least the following resolution, measured in pixels per inch (ppi):</h4>
+        <div data-role="fieldcontain">
+          <div class="textBoxCntr">
+            <input id="ppiTextBox"  readonly><label>&nbsp;PPI</label>
+          </div>
+        </div>
+    </div>
+    
+    <div data-theme="d" data-role="footer" data-position="fixed">
+      <h4>©Kelly Smith</h4>
+    </div>
+</div>
+</body>
+</html>
